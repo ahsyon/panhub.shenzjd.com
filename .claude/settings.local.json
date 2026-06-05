@@ -57,7 +57,9 @@
       "Bash(kill 12871)",
       "Bash(ps *)",
       "Bash(kill 52104)",
-      "Bash(gh secret *)"
+      "Bash(gh secret *)",
+      "Bash(git checkout *)",
+      "Bash(git branch *)"
     ]
   }
 }
