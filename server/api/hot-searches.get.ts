@@ -12,11 +12,18 @@ export default defineEventHandler(async (event) => {
 
   const hotSearches = await service.getHotSearches(limit);
 
+  const maxScore = hotSearches.length > 0 ? (hotSearches[0].displayScore ?? hotSearches[0].score) : 1;
+
   return {
     code: 0,
     message: "success",
     data: {
-      hotSearches,
+      hotSearches: hotSearches.map((item) => ({
+        ...item,
+        rank: item.rank ?? 0,
+        displayScore: item.displayScore ?? item.score,
+        heatPercent: maxScore > 0 ? Math.round(((item.displayScore ?? item.score) / maxScore) * 100) : 0,
+      })),
     },
   };
 });
