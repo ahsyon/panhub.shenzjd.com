@@ -35,6 +35,9 @@ COPY --from=builder /app/.output ./.output
 COPY --from=builder /app/package.json ./
 
 # 创建 data 目录（用于 JSON 热搜持久化）
-RUN mkdir -p /app/data && chmod 777 /app/data
+RUN mkdir -p /app/data && chown node:node /app/data
+
+# 切换到非 root 用户
+USER node
 
 CMD ["node", "--enable-source-maps", ".output/server/index.mjs"]
