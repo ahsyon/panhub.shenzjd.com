@@ -1,5 +1,5 @@
 /* 深色模式 - Obsidian Tide 主题 */
-@media (prefers-color-scheme: dark) {
+html.dark {
   :root {
     --primary: #2dd4bf;
     --primary-dark: #14b8a6;
@@ -525,4 +525,3 @@
     border-color: rgba(248, 113, 113, 0.25);
     color: #f87171;
   }
-}
